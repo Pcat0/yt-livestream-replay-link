@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Link to long youtube live streams</title>
+  <meta name="description" content="This is a simple tool to generate links to generate links to a specific time in youtube livestreams that are over 13 hours long.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Pcat0">
+  <script">
+    const params = new URLSearchParams(window.location.search);
+    if(!params.get('v')) throw 'no video';
+    const streamStart = Math.floor(Date.now()/1e3)-46800;
+    const timeStamp = params.get('t') - streamStart;
+
+    var redirectUrl = new URL("https://www.youtube.com/watch");
+    redirectUrl.searchParams.append('v', params.get('v'));
+    redirectUrl.searchParams.append('t', timeStamp + 's')
+    window.location.replace(redirectUrl);
+  </script>
+  
+</head>
+
+<body>
+
+</body>
+</html>
+
+
+
+
