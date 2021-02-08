@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream replay no longer archived</title>
+    <style>
+        p {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sorry</h1>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.write(`<p>YouTube no longer has an archive of the stream from ${new Date(params.get('t') * 1000)}</p>`)
+    </script>
+</body>
+</html>

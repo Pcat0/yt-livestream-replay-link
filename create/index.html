@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>YouTube Livesteam Replay Creator</title>
+  <meta name="description" content="Create a replay link to a youtube livestream.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="YouTube Livesteam Replay Creator">
+  <meta property="og:description" content="Create a replay link to a youtube livestream.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Pcat0">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <section class="center">
+    <h1>YouTube Livesteam Replay Creator</h1>
+    
+    <div class="controls">
+      <label class="controls-label" for="streamID">Stream ID/Url</label>
+      <div class="controls-input">
+        <input 
+          type="text"
+          size="60"
+          name="streamID"
+          id="streamID"
+          data-vaild="empty"
+          placeholder="'gnt2wZBg89g' OR 'https://www.youtube.com/watch?v=gnt2wZBg89g'">
+        <div class="AdvancedInput-err-msg" data-for="streamID" data-hidden="true"></div>
+      </div>
+
+      <div id="preview-label" class="controls-label" data-hidden='true'>
+        Stream Thumbnail
+      </div>
+      <div id="preview" class="controls-input stream-thumbnail" data-hidden='true'>
+      </div>
+
+      <label class="controls-label" for="timestamp">Start Replay At</label>
+      <div class="controls-input">
+        <input type="time" name="timestamp" id="timestamp" step="1" data-vaild="empty">
+        <div class="AdvancedInput-err-msg" data-for="timestamp" data-hidden="true"></div>
+      </div>
+      
+      <div class="gap"></div>
+      <label class="controls-label" for="replay-url">Replay Link</label>
+      <div class="controls-input">
+        <input onfocus="selectAllText.call(this)" type="text" name="replay-url" id="replay-url" readonly size="60">
+        <button onclick="copyText('replay-url')">Copy Link </button>
+      </div>
+      
+    </div>
+    <a  style="font-size: .75em;" href="https://github.com/Pcat0/yt-livestream-replay-link/issues">Issues / suggestions</a>
+  </section>
+  
+  <script src="./script.js"></script>
+</body>
+</html>
