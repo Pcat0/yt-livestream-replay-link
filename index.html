@@ -22,6 +22,7 @@
         var redirectUrl = new URL("https://www.youtube.com/watch");
         redirectUrl.searchParams.append('v', params.get('v'));
         redirectUrl.searchParams.append('t', timeStamp + 's')
+        return redirectUrl;
         
     }
     alert('1')
