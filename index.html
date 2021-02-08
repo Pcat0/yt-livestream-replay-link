@@ -18,12 +18,13 @@
         const streamStart = Math.floor(Date.now()/1e3)-46800;
         const timeStamp = params.get('t') - streamStart;
 
-        if(timeStamp < 0 ) return `./no-archive.html?t={params.get('t')}`
+        if(timeStamp < 0 ) return `./no-archive.html?t=${params.get('t')}`
         var redirectUrl = new URL("https://www.youtube.com/watch");
         redirectUrl.searchParams.append('v', params.get('v'));
         redirectUrl.searchParams.append('t', timeStamp + 's')
         
     }
+    alert('1')
     const params = new URLSearchParams(window.location.search);
     window.location.replace(getRedirectUrl(params));
   </script>
