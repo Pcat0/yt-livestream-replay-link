@@ -1,4 +1,3 @@
-  
 <!doctype html>
 
 <html lang="en">
@@ -14,15 +13,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="author" content="Pcat0">
   <script>
-    const params = new URLSearchParams(window.location.search);
-    if(!params.get('v')) throw 'no video';
-    const streamStart = Math.floor(Date.now()/1e3)-46800;
-    const timeStamp = params.get('t') - streamStart;
+    function getRedirectUrl(params){
+        if(!params.get('v')) return './create';
+        const streamStart = Math.floor(Date.now()/1e3)-46800;
+        const timeStamp = params.get('t') - streamStart;
 
-    var redirectUrl = new URL("https://www.youtube.com/watch");
-    redirectUrl.searchParams.append('v', params.get('v'));
-    redirectUrl.searchParams.append('t', timeStamp + 's')
-    window.location.replace(redirectUrl);
+        if(timeStamp < 0 ) return `./no-archive.html?t={params.get('t')}`
+        var redirectUrl = new URL("https://www.youtube.com/watch");
+        redirectUrl.searchParams.append('v', params.get('v'));
+        redirectUrl.searchParams.append('t', timeStamp + 's')
+        
+    }
+    const params = new URLSearchParams(window.location.search);
+    window.location.replace(getRedirectUrl(params));
   </script>
   
 </head>
